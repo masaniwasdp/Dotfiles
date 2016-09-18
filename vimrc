@@ -30,7 +30,6 @@ set nobackup
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
-imap " ""<LEFT>
 
 " デフォルトのエンコーディング
 set encoding=utf-8
