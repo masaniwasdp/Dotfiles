@@ -26,11 +26,6 @@ set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
 " バックアップをとらない
 set nobackup
 
-" 自動的に閉じ括弧を入力
-imap { {}<LEFT>
-imap [ []<LEFT>
-imap ( ()<LEFT>
-
 " デフォルトのエンコーディング
 set encoding=utf-8
 set fileencodings=utf-8,sjis,euc-jp
