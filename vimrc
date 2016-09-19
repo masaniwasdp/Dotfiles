@@ -10,9 +10,6 @@ syntax on
 " カーソルライン
 set cursorline
 
-hi clear CursorLine
-highlight CursorLine ctermbg=white
-
 " タブをスペース4つに置換
 set tabstop=4
 set autoindent
