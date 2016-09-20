@@ -35,6 +35,12 @@ set laststatus=2
 noremap <C-Z> u
 noremap <C-Y> <C-R>
 
+" タグの生成
+noremap <C-P> :TagsGenerate<CR>
+
+" ウィンドウの移動
+noremap <C-W> <C-W>w
+
 " タブの設定
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
@@ -42,6 +48,7 @@ endfunction
 
 function! s:my_tabline()
   let s = ''
+
   for i in range(1, tabpagenr('$'))
     let bufnrs = tabpagebuflist(i)
     let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
@@ -55,7 +62,9 @@ function! s:my_tabline()
     let s .= mod
     let s .= '%#TabLineFill# '
   endfor
+
   let s .= '%#TabLineFill#%T%=%#TabLine#'
+
   return s
 endfunction
 
@@ -86,16 +95,18 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'szw/vim-tags'
 
 call neobundle#end()
+
 filetype plugin indent on
+
 NeoBundleCheck
 
 " unite.vimの設定
@@ -105,16 +116,11 @@ noremap <C-F> :Unite -buffer-name=file file<CR>
 noremap <C-H> :Unite file_mru<CR>
 noremap <C-C> :UniteWithBufferDir file -buffer-name=file<CR>
 
-" nerdtreeの設定
-noremap <C-E> :NERDTreeToggle<CR>
+" vimfilerの設定
+noremap <C-E> :VimFilerExplorer<CR>
 
 " lightline.vimの設定
 let g:lightline = {'colorscheme': 'solarized'}
 
-" taglist.vimの設定
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_Use_Right_Window = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Show_One_File = 1
-
-map <C-L> :TlistToggle<CR>
+" tagbarの設定
+noremap <C-L> :TagbarToggle<CR>
