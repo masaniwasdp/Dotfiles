@@ -46,13 +46,13 @@ function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
 
-function! s:my_tabline()
+function! s:tabline()
   let s = ''
 
   for i in range(1, tabpagenr('$'))
     let bufnrs = tabpagebuflist(i)
-    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-    let no = i  " display 0-origin tabpagenr.
+    let bufnr = bufnrs[tabpagewinnr(i) - 1]
+    let no = i
     let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
     let title = fnamemodify(bufname(bufnr), ':t')
     let title = '[' . title . ']'
@@ -68,20 +68,20 @@ function! s:my_tabline()
   return s
 endfunction
 
-let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
+let &tabline = '%!'. s:SID_PREFIX() . 'tabline()'
 set showtabline=2
 
 nnoremap [Tag] <Nop>
 nmap t [Tag]
 
 for n in range(1, 9)
-  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+  execute 'nnoremap [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
 
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
-map <silent> [Tag]x :tabclose<CR>
-map <silent> [Tag]n :tabnext<CR>
-map <silent> [Tag]p :tabprevious<CR>
+map [Tag]c :tablast <bar> tabnew<CR>
+map [Tag]x :tabclose<CR>
+map [Tag]n :tabnext<CR>
+map [Tag]p :tabprevious<CR>
 
 " プラグイン管理
 if has('vim_starting')
@@ -102,6 +102,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'szw/vim-tags'
+NeoBundle 'Yggdroot/indentLine'
 
 call neobundle#end()
 
