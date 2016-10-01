@@ -140,15 +140,31 @@ let g:quickrun_config = {
             \   "outputter/buffer/split": "botright 8sp",
             \   "outputter/quickfix/open_cmd": "copen",
             \   "runner": "vimproc",
-            \   "runner/vimproc/updatetime": "500"
+            \   "runner/vimproc/updatetime": "100"
+            \   },
+            \
+            \ "c": {
+            \   "type": "clang"
+            \   },
+            \
+            \ "clang": {
+            \   "cmdopt": "-Wall -std=gnu99"
+            \   },
+            \
+            \ "c/watchdogs_checker": {
+            \   "type": "watchdogs_checker/clang"
+            \   },
+            \
+            \ "watchdogs_checker/clang": {
+            \   "cmdopt": "-Wall -std=gnu99"
             \   },
             \
             \ "cpp": {
-            \   "type": "cpp/clang++",
+            \   "type": "clang++",
             \   },
             \
-            \ "cpp/clang++": {
-            \   "cmdopt": "-std=c++14"
+            \ "clang++": {
+            \   "cmdopt": "-Wall -std=c++14"
             \   },
             \
             \ "cpp/watchdogs_checker": {
@@ -156,7 +172,11 @@ let g:quickrun_config = {
             \   },
             \
             \ "watchdogs_checker/clang++": {
-            \   "cmdopt": "-Wall"
+            \   "cmdopt": "-Wall -std=c++14"
+            \   },
+            \
+            \ "python/watchdogs_checker": {
+            \   "type": "watchdogs_checker/flake8"
             \   }
             \ }
 
@@ -174,3 +194,5 @@ call quickrun#module#register(s:hook, 1)
 unlet s:hook
 
 let g:watchdogs_check_BufWritePost_enable = 1
+
+noremap <C-R> :QuickRun<CR>
