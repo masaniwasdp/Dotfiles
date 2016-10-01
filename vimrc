@@ -93,6 +93,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'Shougo/vimproc.vim', { 'build': { 'linux': 'make' } }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
@@ -103,6 +104,10 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'osyo-manga/vim-watchdogs'
+NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'jceb/vim-hier'
 
 call neobundle#end()
 
@@ -121,7 +126,51 @@ noremap <C-C> :UniteWithBufferDir file -buffer-name=file<CR>
 noremap <C-E> :VimFilerExplorer<CR>
 
 " lightline.vimの設定
-let g:lightline = {'colorscheme': 'solarized'}
+let g:lightline = { 'colorscheme': 'solarized' }
 
 " tagbarの設定
 noremap <C-L> :TagbarToggle<CR>
+
+" vim-quickrunの設定
+let g:quickrun_config = {
+            \ "_": {
+            \   "outputter": "error",
+            \   "outputter/error/success": "buffer",
+            \   "outputter/error/error": "quickfix",
+            \   "outputter/buffer/split": "botright 8sp",
+            \   "outputter/quickfix/open_cmd": "copen",
+            \   "runner": "vimproc",
+            \   "runner/vimproc/updatetime": "500"
+            \   },
+            \
+            \ "cpp": {
+            \   "type": "cpp/clang++",
+            \   },
+            \
+            \ "cpp/clang++": {
+            \   "cmdopt": "-std=c++14"
+            \   },
+            \
+            \ "cpp/watchdogs_checker": {
+            \   "type": "watchdogs_checker/clang++"
+            \   },
+            \
+            \ "watchdogs_checker/clang++": {
+            \   "cmdopt": "-Wall"
+            \   }
+            \ }
+
+let s:hook = {
+            \ "name": "clear_quickfix",
+            \ "kind": "hook"
+            \ }
+
+function! s:hook.on_normalized(session, context)
+    call setqflist([])
+endfunction
+
+call quickrun#module#register(s:hook, 1)
+
+unlet s:hook
+
+let g:watchdogs_check_BufWritePost_enable = 1
