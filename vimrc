@@ -130,6 +130,7 @@ let g:lightline = { 'colorscheme': 'solarized' }
 
 " tagbarの設定
 noremap <C-L> :TagbarToggle<CR>
+noremap <C-K> :TagbarOpenAutoClose<CR>
 
 " vim-quickrunの設定
 let g:quickrun_config = {
@@ -194,5 +195,3 @@ call quickrun#module#register(s:hook, 1)
 unlet s:hook
 
 let g:watchdogs_check_BufWritePost_enable = 1
-
-noremap <C-R> :QuickRun<CR>
