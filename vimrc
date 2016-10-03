@@ -108,6 +108,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'osyo-manga/vim-watchdogs'
 NeoBundle 'osyo-manga/shabadou.vim'
 NeoBundle 'jceb/vim-hier'
+NeoBundle 'iamcco/markdown-preview.vim'
 
 call neobundle#end()
 
@@ -195,3 +196,6 @@ call quickrun#module#register(s:hook, 1)
 unlet s:hook
 
 let g:watchdogs_check_BufWritePost_enable = 1
+
+" markdown-preview.vimの設定
+let g:mkdp_path_to_chrome = "google-chrome-stable"
