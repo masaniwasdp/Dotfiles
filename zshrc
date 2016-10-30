@@ -44,3 +44,8 @@ export EDITOR=vim
 
 # lsを見やすくする
 alias ls="ls -F --color"
+
+# nvmコマンドの設定
+if [[ -s ~/.nvm/nvm.sh ]];
+then source ~/.nvm/nvm.sh
+fi
