@@ -49,3 +49,6 @@ alias ls="ls -F --color"
 if [[ -s ~/.nvm/nvm.sh ]];
 then source ~/.nvm/nvm.sh
 fi
+
+# AndroidStudio
+alias android-studio="~/android-studio/bin/studio.sh"
