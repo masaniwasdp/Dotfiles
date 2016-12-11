@@ -43,7 +43,7 @@ setopt hist_ignore_all_dups
 export EDITOR=vim
 
 # lsを見やすくする
-alias ls="ls -F --color"
+alias ls="ls -l -F --color"
 
 # nvmコマンドの設定
 if [[ -s ~/.nvm/nvm.sh ]];
