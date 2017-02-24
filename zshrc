@@ -42,13 +42,13 @@ setopt hist_ignore_all_dups
 # デフォルトのエディタ
 export EDITOR=vim
 
-# lsを見やすくする
+# ls
 alias ls="ls -l -F --color"
 
-# nvmコマンドの設定
+# nvm
 if [[ -s ~/.nvm/nvm.sh ]];
 then source ~/.nvm/nvm.sh
 fi
 
-# AndroidStudio
+# android-studio
 alias android-studio="~/android-studio/bin/studio.sh"

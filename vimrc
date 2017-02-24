@@ -116,24 +116,24 @@ filetype plugin indent on
 
 NeoBundleCheck
 
-" unite.vimの設定
+" unite.vim
 let g:unite_source_file_mru_limit = 16
 
 noremap <C-F> :Unite -buffer-name=file file<CR>
 noremap <C-H> :Unite file_mru<CR>
 noremap <C-C> :UniteWithBufferDir file -buffer-name=file<CR>
 
-" vimfilerの設定
+" vimfiler
 noremap <C-E> :VimFilerExplorer<CR>
 
-" lightline.vimの設定
+" lightline.vim
 let g:lightline = { 'colorscheme': 'solarized' }
 
-" tagbarの設定
+" tagbar
 noremap <C-L> :TagbarToggle<CR>
 noremap <C-K> :TagbarOpenAutoClose<CR>
 
-" vim-quickrunの設定
+" vim-quickrun
 let g:quickrun_config = {
             \ "_": {
             \   "outputter": "error",
@@ -150,7 +150,7 @@ let g:quickrun_config = {
             \   },
             \
             \ "clang": {
-            \   "cmdopt": "-Wall -std=gnu99"
+            \   "cmdopt": "-Wall -std=gnu99 -Iinclude"
             \   },
             \
             \ "c/watchdogs_checker": {
@@ -158,7 +158,7 @@ let g:quickrun_config = {
             \   },
             \
             \ "watchdogs_checker/clang": {
-            \   "cmdopt": "-Wall -std=gnu99"
+            \   "cmdopt": "-Wall -std=gnu99 -Iinclude"
             \   },
             \
             \ "cpp": {
@@ -166,7 +166,7 @@ let g:quickrun_config = {
             \   },
             \
             \ "clang++": {
-            \   "cmdopt": "-Wall -std=c++14"
+            \   "cmdopt": "-Wall -std=c++14 -Iinclude"
             \   },
             \
             \ "cpp/watchdogs_checker": {
@@ -174,7 +174,23 @@ let g:quickrun_config = {
             \   },
             \
             \ "watchdogs_checker/clang++": {
-            \   "cmdopt": "-Wall -std=c++14"
+            \   "cmdopt": "-Wall -std=c++14 -Iinclude"
+            \   },
+            \
+            \ "d": {
+            \   "type": "dmd"
+            \   },
+            \
+            \ "dmd": {
+            \   "cmdopt": "-w"
+            \   },
+            \
+            \ "d/watchdogs_checker": {
+            \   "type": "watchdogs_checker/dmd"
+            \   },
+            \
+            \ "watchdogs_checker/dmd": {
+            \   "cmdopt": "-w"
             \   },
             \
             \ "python/watchdogs_checker": {
@@ -197,5 +213,5 @@ unlet s:hook
 
 let g:watchdogs_check_BufWritePost_enable = 1
 
-" markdown-preview.vimの設定
+" markdown-preview.vim
 let g:mkdp_path_to_chrome = "google-chrome-stable"
