@@ -145,28 +145,12 @@ let g:quickrun_config = {
             \   "runner/vimproc/updatetime": "100"
             \   },
             \
-            \ "c": {
-            \   "type": "clang"
-            \   },
-            \
-            \ "clang": {
-            \   "cmdopt": "-Wall -std=gnu99 -Iinclude"
-            \   },
-            \
             \ "c/watchdogs_checker": {
             \   "type": "watchdogs_checker/clang"
             \   },
             \
             \ "watchdogs_checker/clang": {
             \   "cmdopt": "-Wall -std=gnu99 -Iinclude"
-            \   },
-            \
-            \ "cpp": {
-            \   "type": "clang++",
-            \   },
-            \
-            \ "clang++": {
-            \   "cmdopt": "-Wall -std=c++14 -Iinclude"
             \   },
             \
             \ "cpp/watchdogs_checker": {
@@ -177,20 +161,12 @@ let g:quickrun_config = {
             \   "cmdopt": "-Wall -std=c++14 -Iinclude"
             \   },
             \
-            \ "d": {
-            \   "type": "dmd"
-            \   },
-            \
-            \ "dmd": {
-            \   "cmdopt": "-w"
-            \   },
-            \
             \ "d/watchdogs_checker": {
             \   "type": "watchdogs_checker/dmd"
             \   },
             \
             \ "watchdogs_checker/dmd": {
-            \   "cmdopt": "-w"
+            \   "cmdopt": "-w -I~/storage1/Dlang/source"
             \   },
             \
             \ "python/watchdogs_checker": {
