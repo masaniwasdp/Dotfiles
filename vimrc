@@ -166,7 +166,7 @@ let g:quickrun_config = {
             \   },
             \
             \ "watchdogs_checker/dmd": {
-            \   "cmdopt": "-w -I~/storage1/Dlang/source"
+            \   "cmdopt": "-wi -o- -I~/storage1/Dlang/source"
             \   },
             \
             \ "python/watchdogs_checker": {
