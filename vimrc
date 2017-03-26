@@ -150,7 +150,7 @@ let g:quickrun_config = {
             \   },
             \
             \ "watchdogs_checker/clang": {
-            \   "cmdopt": "-Wall -std=gnu99 -Iinclude"
+            \   "cmdopt": "-Wall -Wextra -std=gnu99 -Iinclude"
             \   },
             \
             \ "cpp/watchdogs_checker": {
@@ -158,7 +158,7 @@ let g:quickrun_config = {
             \   },
             \
             \ "watchdogs_checker/clang++": {
-            \   "cmdopt": "-Wall -std=c++14 -Iinclude"
+            \   "cmdopt": "-Wall -Wextra -std=c++14 -Iinclude"
             \   },
             \
             \ "d/watchdogs_checker": {

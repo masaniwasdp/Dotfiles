@@ -42,6 +42,10 @@ setopt hist_ignore_all_dups
 # デフォルトのエディタ
 export EDITOR=vim
 
+# デフォルトのコンパイラ
+export CC=clang
+export CXX=clang++
+
 # ls
 alias ls="ls -l -F --color"
 
