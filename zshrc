@@ -56,3 +56,6 @@ fi
 
 # android-studio
 alias android-studio="~/android-studio/bin/studio.sh"
+
+# Webカメラ
+export LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so
