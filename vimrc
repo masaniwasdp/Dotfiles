@@ -93,7 +93,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'Shougo/vimproc.vim', { 'build': { 'linux': 'make' } }
+NeoBundle 'Shougo/vimproc.vim', {'build': {'linux': 'make'}}
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
@@ -127,7 +127,7 @@ noremap <C-C> :UniteWithBufferDir file -buffer-name=file<CR>
 noremap <C-E> :VimFilerExplorer<CR>
 
 " lightline.vim
-let g:lightline = { 'colorscheme': 'solarized' }
+let g:lightline = {'colorscheme': 'solarized'}
 
 " tagbar
 noremap <C-L> :TagbarToggle<CR>
@@ -150,7 +150,7 @@ let g:quickrun_config = {
             \   },
             \
             \ "watchdogs_checker/clang": {
-            \   "cmdopt": "-Wall -Wextra -std=gnu99 -Iinclude"
+            \   "cmdopt": "-Wall -Wextra -std=c11 -Iinclude"
             \   },
             \
             \ "cpp/watchdogs_checker": {
@@ -167,6 +167,10 @@ let g:quickrun_config = {
             \
             \ "watchdogs_checker/dmd": {
             \   "cmdopt": "-wi -o- -I~/storage1/Dlang/source"
+            \   },
+            \
+            \ "haskell/watchdogs_checker": {
+            \   "type": "watchdogs_checker/ghc-mod"
             \   },
             \
             \ "python/watchdogs_checker": {
