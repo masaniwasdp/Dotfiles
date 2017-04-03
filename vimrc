@@ -170,7 +170,11 @@ let g:quickrun_config = {
             \   },
             \
             \ "haskell/watchdogs_checker": {
-            \   "type": "watchdogs_checker/hlint"
+            \   "type": "watchdogs_checker/ghc-mod"
+            \   },
+            \
+            \ "watchdogs_checker/ghc-mod": {
+            \   "cmdopt": "-Wall -Wextra"
             \   },
             \
             \ "python/watchdogs_checker": {
