@@ -170,7 +170,7 @@ let g:quickrun_config = {
             \   },
             \
             \ "haskell/watchdogs_checker": {
-            \   "type": "watchdogs_checker/ghc-mod"
+            \   "type": "watchdogs_checker/hlint"
             \   },
             \
             \ "python/watchdogs_checker": {
