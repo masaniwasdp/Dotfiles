@@ -166,7 +166,7 @@ let g:quickrun_config = {
             \   },
             \
             \ "watchdogs_checker/dmd": {
-            \   "cmdopt": "-wi -o- -I~/storage1/Dlang/source"
+            \   "cmdopt": "-wi -o- `dubimport`"
             \   },
             \
             \ "haskell/watchdogs_checker": {
