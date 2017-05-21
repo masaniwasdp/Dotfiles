@@ -43,39 +43,37 @@ noremap <C-W> <C-W>w
 
 " タブの設定
 function! s:SID_PREFIX()
-  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+  return matchstr(expand("<sfile>"), "<SNR>\d\+_\zeSID_PREFIX$")
 endfunction
 
 function! s:tabline()
-  let s = ''
+    let s = ""
 
-  for i in range(1, tabpagenr('$'))
-    let bufnrs = tabpagebuflist(i)
-    let bufnr = bufnrs[tabpagewinnr(i) - 1]
-    let no = i
-    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-    let title = fnamemodify(bufname(bufnr), ':t')
-    let title = '[' . title . ']'
-    let s .= '%'.i.'T'
-    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-    let s .= no . ':' . title
-    let s .= mod
-    let s .= '%#TabLineFill# '
-  endfor
+    for i in range(1, tabpagenr("$"))
+        let bufnr = tabpagebuflist(i)[tabpagewinnr(i) - 1]
 
-  let s .= '%#TabLineFill#%T%=%#TabLine#'
+        let mod = getbufvar(bufnr, "&modified") ? "!" : " "
+        let title = "[" . fnamemodify(bufname(bufnr), ":t") . "]"
 
-  return s
+        let s .= "%" . i . "T"
+        let s .= "%#" . (i == tabpagenr() ? "TabLineSel" : "TabLine") . "#"
+        let s .= i . ":" . title . mod . "%#TabLineFill# "
+    endfor
+
+    let s .= "%#TabLineFill#%T%=%#TabLine#"
+
+    return s
 endfunction
 
-let &tabline = '%!'. s:SID_PREFIX() . 'tabline()'
+let &tabline = "%!" . s:SID_PREFIX() . "tabline()"
+
 set showtabline=2
 
 nnoremap [Tag] <Nop>
 nmap t [Tag]
 
 for n in range(1, 9)
-  execute 'nnoremap [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+    execute "nnoremap [Tag]" . n  ":<C-u>tabnext" . n . "<CR>"
 endfor
 
 map [Tag]c :tablast <bar> tabnew<CR>
@@ -84,31 +82,31 @@ map [Tag]n :tabnext<CR>
 map [Tag]p :tabprevious<CR>
 
 " プラグイン管理
-if has('vim_starting')
-  set nocompatible
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if has("vim_starting")
+    set nocompatible
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+call neobundle#begin(expand("~/.vim/bundle/"))
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundleFetch "Shougo/neobundle.vim"
 
-NeoBundle 'Shougo/vimproc.vim', {'build': {'linux': 'make'}}
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'szw/vim-tags'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'osyo-manga/vim-watchdogs'
-NeoBundle 'osyo-manga/shabadou.vim'
-NeoBundle 'jceb/vim-hier'
-NeoBundle 'iamcco/markdown-preview.vim'
+NeoBundle "iamcco/markdown-preview.vim"
+NeoBundle "itchyny/lightline.vim"
+NeoBundle "jceb/vim-hier"
+NeoBundle "majutsushi/tagbar"
+NeoBundle "osyo-manga/vim-watchdogs"
+NeoBundle "osyo-manga/shabadou.vim"
+NeoBundle "thinca/vim-quickrun"
+NeoBundle "szw/vim-tags"
+NeoBundle "Shougo/neocomplete"
+NeoBundle "Shougo/neomru.vim"
+NeoBundle "Shougo/neosnippet"
+NeoBundle "Shougo/neosnippet-snippets"
+NeoBundle "Shougo/unite.vim"
+NeoBundle "Shougo/vimfiler"
+NeoBundle "Shougo/vimproc.vim", {"build": {"linux": "make"}}
+NeoBundle "Yggdroot/indentLine"
 
 call neobundle#end()
 
@@ -127,7 +125,7 @@ noremap <C-C> :UniteWithBufferDir file -buffer-name=file<CR>
 noremap <C-E> :VimFilerExplorer<CR>
 
 " lightline.vim
-let g:lightline = {'colorscheme': 'solarized'}
+let g:lightline = {"colorscheme": "solarized"}
 
 " tagbar
 noremap <C-L> :TagbarToggle<CR>
@@ -145,43 +143,18 @@ let g:quickrun_config = {
             \   "runner/vimproc/updatetime": "100"
             \   },
             \
-            \ "c/watchdogs_checker": {
-            \   "type": "watchdogs_checker/clang"
-            \   },
+            \ "c/watchdogs_checker": {"type": "watchdogs_checker/clang"},
+            \ "cpp/watchdogs_checker": {"type": "watchdogs_checker/clang++"},
+            \ "d/watchdogs_checker": {"type": "watchdogs_checker/dmd"},
+            \ "haskell/watchdogs_checker": {"type": "watchdogs_checker/ghc-mod"},
+            \ "python/watchdogs_checker": {"type": "watchdogs_checker/flake8"},
             \
-            \ "watchdogs_checker/clang": {
-            \   "cmdopt": "-Wall -Wextra -std=c11 -Iinclude"
-            \   },
-            \
-            \ "cpp/watchdogs_checker": {
-            \   "type": "watchdogs_checker/clang++"
-            \   },
-            \
-            \ "watchdogs_checker/clang++": {
-            \   "cmdopt": "-Wall -Wextra -std=c++14 -Iinclude"
-            \   },
-            \
-            \ "d/watchdogs_checker": {
-            \   "type": "watchdogs_checker/dmd"
-            \   },
-            \
-            \ "watchdogs_checker/dmd": {
-            \   "cmdopt": "-wi -o- `~/storage1/DUBImport/build/dubimport`"
-            \   },
-            \
-            \ "haskell/watchdogs_checker": {
-            \   "type": "watchdogs_checker/ghc-mod"
-            \   },
-            \
-            \ "python/watchdogs_checker": {
-            \   "type": "watchdogs_checker/flake8"
-            \   }
+            \ "watchdogs_checker/clang": {"cmdopt": "-Wall -Wextra -std=c11 -Iinclude"},
+            \ "watchdogs_checker/clang++": {"cmdopt": "-Wall -Wextra -std=c++14 -Iinclude"},
+            \ "watchdogs_checker/dmd": {"cmdopt": "-wi -o- `~/DUBImport/build/dubimport`"}
             \ }
 
-let s:hook = {
-            \ "name": "clear_quickfix",
-            \ "kind": "hook"
-            \ }
+let s:hook = {"name": "clear_quickfix", "kind": "hook"}
 
 function! s:hook.on_normalized(session, context)
     call setqflist([])

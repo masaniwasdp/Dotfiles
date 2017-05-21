@@ -3,31 +3,33 @@ autoload -U compinit
 compinit
 
 # 補完時に大文字小文字を区別しない
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
 
-# シンタックスハイライティング
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# シンタックスハイライト
+source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # プロンプト
 autoload -U promptinit
 promptinit
-PROMPT="%F{yellow}%T%f %F{blue}%n>%f "
-RPROMPT="%F{red}%~%f"
+
+PROMPT="
+%F{red}%B%n%b%f %F{yellow}[%~]%f
+    %B>%b "
+
+RPROMPT="%B%T%b"
 
 # ターミナルのタイトル
 case "${TERM}" in
-kterm*|xterm)
-    precmd() {
-       echo -ne "\033]0;${USER}@${HOST%%.*}\007"
-    }
-    ;;
+    kterm* | xterm)
+        precmd() { echo -ne "\033]0;${USER}@${HOST%%.*}\007" }
+        ;;
 esac
 
 # 他のターミナルとヒストリを共有
 setopt share_history
 
 # ヒストリを保存
-HISTFILE=~/.zsh_history
+HISTFILE="~/.zsh_history"
 HISTSIZE=512
 SAVEHIST=512
 
@@ -42,17 +44,17 @@ setopt pushd_ignore_dups
 setopt hist_ignore_all_dups
 
 # デフォルトのエディタ
-export EDITOR=vim
+export EDITOR="vim"
 
 # デフォルトのコンパイラ
-export CC=clang
-export CXX=clang++
+export CC="clang"
+export CXX="clang++"
+
+# Webカメラ
+export LD_PRELOAD="/usr/lib/libv4l/v4l2convert.so"
 
 # ls
 alias ls="ls -l -F --color"
-
-# Webカメラ
-export LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so
 
 # dubimport
 alias dubimport="~/DUBImport/build/dubimport"
