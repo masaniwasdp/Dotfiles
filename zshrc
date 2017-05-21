@@ -5,11 +5,14 @@ compinit
 # 補完時に大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+# シンタックスハイライティング
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # プロンプト
 autoload -U promptinit
 promptinit
-PROMPT="%n@%F{cyan}%m%f>"
-RPROMPT="%F{yellow}%~%f"
+PROMPT="%F{yellow}%T%f %F{blue}%n>%f "
+RPROMPT="%F{red}%~%f"
 
 # ターミナルのタイトル
 case "${TERM}" in
@@ -25,14 +28,13 @@ setopt share_history
 
 # ヒストリを保存
 HISTFILE=~/.zsh_history
-HISTSIZE=256
-SAVEHIST=256
+HISTSIZE=512
+SAVEHIST=512
 
 # ディレクトリ名だけでcd
 setopt auto_cd
 
-# cdした先のディレクトリをディレクトリスタックに追加
-# cd <Tab>でディレクトリの履歴が表示され、そこに移動できる
+# ディレクトリスタック
 setopt auto_pushd
 setopt pushd_ignore_dups
 
@@ -49,16 +51,8 @@ export CXX=clang++
 # ls
 alias ls="ls -l -F --color"
 
-# nvm
-if [[ -s ~/.nvm/nvm.sh ]];
-then source ~/.nvm/nvm.sh
-fi
-
-# android-studio
-alias android-studio="~/android-studio/bin/studio.sh"
-
 # Webカメラ
 export LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so
 
 # dubimport
-alias dubimport="~/storage1/DUBImport/build/dubimport"
+alias dubimport="~/DUBImport/build/dubimport"
