@@ -10,6 +10,9 @@ syntax on
 " カーソルライン
 set cursorline
 
+" 縦線表示
+set colorcolumn=120
+
 " タブをスペース4つに置換
 set tabstop=4
 set autoindent
