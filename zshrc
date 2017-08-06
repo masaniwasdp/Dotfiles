@@ -56,5 +56,8 @@ export LD_PRELOAD="/usr/lib/libv4l/v4l2convert.so"
 # ls
 alias ls="ls -l -F --color"
 
+# desktopdial
+alias desktopdial="~/bin/DesktopDial/desktopdial"
+
 # dubimport
-alias dubimport="~/DUBImport/build/dubimport"
+alias dubimport="~/bin/DUBImport/dubimport"
