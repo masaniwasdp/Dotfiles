@@ -1,4 +1,4 @@
-dotfiles
+Dotfiles
 ===
 
 Ĉi tioj estas miaj dotdosieroj.
