@@ -1,63 +1,62 @@
-# 自動補完
-autoload -U compinit
-compinit
-
-# 補完時に大文字小文字を区別しない
-zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
-
-# シンタックスハイライト
 source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# プロンプト
-autoload -U promptinit
-promptinit
+function set_prompt() {
+    autoload -U promptinit
 
-PROMPT="
-%F{red}%B%n%b%f %F{yellow}[%~]%f
-    %B>%b "
+    promptinit
 
-RPROMPT="%B%T%b"
+    PROMPT=" %F{red}%B%n%b%f %B>%b "
+    RPROMPT="%F{yellow}[%~]%f "
+}
 
-# ターミナルのタイトル
-case "${TERM}" in
-    kterm* | xterm)
-        precmd() { echo -ne "\033]0;${USER}@${HOST%%.*}\007" }
-        ;;
-esac
+function set_title() {
+    case "${TERM}" in
+        kterm* | xterm)
+            precmd() { echo -ne "\033]0;${USER}@${HOST%%.*}\007" }
+            ;;
+    esac
+}
 
-# 他のターミナルとヒストリを共有
-setopt share_history
+function set_completion() {
+    autoload -U compinit
 
-# ヒストリを保存
-HISTFILE="~/.zsh_history"
-HISTSIZE=512
-SAVEHIST=512
+    compinit
 
-# ディレクトリ名だけでcd
-setopt auto_cd
+    zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
+}
 
-# ディレクトリスタック
-setopt auto_pushd
-setopt pushd_ignore_dups
+function set_history() {
+    setopt share_history
+    setopt hist_ignore_all_dups
 
-# 履歴から同じコマンドを削除
-setopt hist_ignore_all_dups
+    HISTFILE="~/.zsh_history"
+    HISTSIZE=512
+    SAVEHIST=512
+}
 
-# デフォルトのエディタ
-export EDITOR="vim"
+function set_cd() {
+    setopt auto_cd
+    setopt auto_pushd
+    setopt pushd_ignore_dups
+}
 
-# デフォルトのコンパイラ
-export CC="clang"
-export CXX="clang++"
+function set_variables() {
+    export LD_PRELOAD="/usr/lib/libv4l/v4l2convert.so"
+    export CC="clang"
+    export CXX="clang++"
+    export EDITOR="vim"
+}
 
-# Webカメラ
-export LD_PRELOAD="/usr/lib/libv4l/v4l2convert.so"
+function set_aliases() {
+    alias desktopdial="~/bin/DesktopDial/desktopdial"
+    alias dubimport="~/bin/DUBImport/dubimport"
+    alias ls="ls -l -F --color"
+}
 
-# ls
-alias ls="ls -l -F --color"
-
-# desktopdial
-alias desktopdial="~/bin/DesktopDial/desktopdial"
-
-# dubimport
-alias dubimport="~/bin/DUBImport/dubimport"
+set_prompt
+set_title
+set_completion
+set_history
+set_cd
+set_variables
+set_aliases
