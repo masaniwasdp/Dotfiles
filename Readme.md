@@ -1,4 +1,4 @@
 dotfiles
 ===
 
-Ĉi tioj estas miaj "dotfile".
+Ĉi tioj estas miaj dotdosieroj.
