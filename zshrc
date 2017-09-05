@@ -1,7 +1,7 @@
 # Sintakso reliefigi.
 source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# Prompt.
+# Prompto.
 autoload -U promptinit
 
 promptinit
@@ -31,7 +31,7 @@ HISTFILE="~/.zsh_history"
 HISTSIZE=512
 SAVEHIST=512
 
-# Komando "cd".
+# "cd".
 setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups

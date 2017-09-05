@@ -1,49 +1,5 @@
-syntax on
-
-set t_Co=256
-set nobackup
-set laststatus=2
-set number
-set cursorline
-set colorcolumn=120
-set autoindent
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set list
-set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
-set encoding=utf-8
-set fileencodings=utf-8,sjis
-set fileformats=unix,dos
-set showtabline=2
-
-function! s:SID_PREFIX()
-    return matchstr(expand("<sfile>"), "<SNR>\d\+_\zeSID_PREFIX$")
-endfunction
-
-function! s:tabline()
-    let s = ""
-
-    for i in range(1, tabpagenr("$"))
-        let bufnr = tabpagebuflist(i)[tabpagewinnr(i) - 1]
-
-        let mod = getbufvar(bufnr, "&modified") ? "!" : " "
-        let title = "[" . fnamemodify(bufname(bufnr), ":t") . "]"
-
-        let s .= "%" . i . "T"
-        let s .= "%#" . (i == tabpagenr() ? "TabLineSel" : "TabLine") . "#"
-        let s .= i . ":" . title . mod . "%#TabLineFill# "
-    endfor
-
-    let s .= "%#TabLineFill#%T%=%#TabLine#"
-
-    return s
-endfunction
-
-let &tabline = "%!" . s:SID_PREFIX() . "tabline()"
-
+" Legi kromaĵojn.
 if has("vim_starting")
-    set nocompatible
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
@@ -74,10 +30,67 @@ filetype plugin indent on
 
 NeoBundleCheck
 
+" Koloro.
+syntax on
+
+" Pozicio.
+set number
+set cursorline
+set colorcolumn=120
+
+" Aperoj de spacetoj.
+set list
+set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
+
+" Indento.
+set autoindent
+set expandtab
+set shiftwidth=4
+set tabstop=4
+
+" Manipuli dosierojn.
+set nobackup
+set encoding=utf-8
+set fileencodings=utf-8,sjis
+set fileformats=unix,dos
+
+" Informoj.
+function! s:sid_prefix()
+    return matchstr(expand("<sfile>"), "<SNR>\d\+_\zeSID_PREFIX$")
+endfunction
+
+function! s:tabline()
+    let line = ""
+
+    for i in range(1, tabpagenr("$"))
+        let bufnr = tabpagebuflist(i)[tabpagewinnr(i) - 1]
+
+        let modified = getbufvar(bufnr, "&modified") ? "!" : " "
+
+        let title = "[" . fnamemodify(bufname(bufnr), ":t") . "]"
+
+        let kind = i == tabpagenr() ? "TabLineSel" : "TabLine"
+
+        let line .= "%" . i . "T%#" . kind . "#" . i . ":" . title . modified . "%#TabLineFill# "
+    endfor
+
+    let line .= "%#TabLineFill#%T%=%#TabLine#"
+
+    return line
+endfunction
+
+let &tabline = "%!" . s:sid_prefix() . s:tabline()
+
+set showtabline=2
+set laststatus=2
+
+" 'unite.vim'.
 let g:unite_source_file_mru_limit = 16
 
+" 'lightline.vim'.
 let g:lightline = { "colorscheme": "solarized" }
 
+" 'vim-quickrun'.
 let g:quickrun_config = {
             \ "_": {
             \   "outputter": "error",
@@ -110,10 +123,13 @@ call quickrun#module#register(s:hook, 1)
 
 unlet s:hook
 
+" 'vim-watchdogs'.
 let g:watchdogs_check_BufWritePost_enable = 1
 
+" 'markdown-preview.vim'.
 let g:mkdp_path_to_chrome = "google-chrome-stable"
 
+" Ŝlosilaj mapeadoj.
 map tc :tablast <bar> tabnew<CR>
 map tx :tabclose<CR>
 map t1 :tabnext 1<CR>
@@ -126,11 +142,11 @@ map t7 :tabnext 7<CR>
 map t8 :tabnext 8<CR>
 map t9 :tabnext 9<CR>
 
-noremap <C-Z> u
-noremap <C-Y> <C-R>
-noremap <C-W> <C-W>w
-noremap <C-L> :TagbarToggle<CR>
-noremap <C-F> :Unite -buffer-name=file file<CR>
-noremap <C-H> :Unite file_mru<CR>
 noremap <C-C> :UniteWithBufferDir file -buffer-name=file<CR>
 noremap <C-E> :VimFilerExplorer<CR>
+noremap <C-F> :Unite -buffer-name=file file<CR>
+noremap <C-H> :Unite file_mru<CR>
+noremap <C-L> :TagbarToggle<CR>
+noremap <C-W> <C-W>w
+noremap <C-Y> <C-R>
+noremap <C-Z> u
