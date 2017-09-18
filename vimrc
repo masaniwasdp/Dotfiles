@@ -1,4 +1,4 @@
-" Legi kromaĵojn.
+" Kromaĵojn
 if has("vim_starting")
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -30,31 +30,31 @@ filetype plugin indent on
 
 NeoBundleCheck
 
-" Koloro.
+" Koloro
 syntax on
 
-" Pozicio.
+" Pozicio
 set number
 set cursorline
 set colorcolumn=120
 
-" Aperoj de spacetoj.
+" Aperoj de spacetoj
 set list
 set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
 
-" Indento.
+" Indento
 set autoindent
 set expandtab
 set shiftwidth=4
 set tabstop=4
 
-" Manipuli dosierojn.
+" Manipuli dosierojn
 set nobackup
 set encoding=utf-8
 set fileencodings=utf-8,sjis
 set fileformats=unix,dos
 
-" Informoj.
+" Informoj
 function! s:sid_prefix()
     return matchstr(expand("<sfile>"), "<SNR>\d\+_\zeSID_PREFIX$")
 endfunction
@@ -84,13 +84,13 @@ let &tabline = "%!" . s:sid_prefix() . s:tabline()
 set showtabline=2
 set laststatus=2
 
-" 'unite.vim'.
+" unite.vim
 let g:unite_source_file_mru_limit = 16
 
-" 'lightline.vim'.
+" lightline.vim
 let g:lightline = { "colorscheme": "solarized" }
 
-" 'vim-quickrun'.
+" vim-quickrun
 let g:quickrun_config = {
             \ "_": {
             \   "outputter": "error",
@@ -123,13 +123,13 @@ call quickrun#module#register(s:hook, 1)
 
 unlet s:hook
 
-" 'vim-watchdogs'.
+" vim-watchdogs
 let g:watchdogs_check_BufWritePost_enable = 1
 
-" 'markdown-preview.vim'.
+" markdown-preview.vim
 let g:mkdp_path_to_chrome = "google-chrome-stable"
 
-" Ŝlosilaj mapeadoj.
+" Ŝlosilaj mapeadoj
 map tc :tablast <bar> tabnew<CR>
 map tx :tabclose<CR>
 map t1 :tabnext 1<CR>
