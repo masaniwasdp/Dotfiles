@@ -105,7 +105,6 @@ let g:quickrun_config = {
             \ "c/watchdogs_checker": { "type": "watchdogs_checker/clang" },
             \ "cpp/watchdogs_checker": { "type": "watchdogs_checker/clang++" },
             \ "d/watchdogs_checker": { "type": "watchdogs_checker/dmd" },
-            \ "haskell/watchdogs_checker": { "type": "watchdogs_checker/ghc-mod" },
             \ "python/watchdogs_checker": { "type": "watchdogs_checker/flake8" },
             \
             \ "watchdogs_checker/clang": { "cmdopt": "-Wall -Wextra -std=c11 -Iinclude" },
