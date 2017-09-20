@@ -109,7 +109,7 @@ let g:quickrun_config = {
             \
             \ "watchdogs_checker/clang": { "cmdopt": "-Wall -Wextra -std=c11 -Iinclude" },
             \ "watchdogs_checker/clang++": { "cmdopt": "-Wall -Wextra -std=c++14 -Iinclude" },
-            \ "watchdogs_checker/dmd": { "cmdopt": "-wi -o- `~/bin/DUBImport/dubimport`" }
+            \ "watchdogs_checker/dmd": { "cmdopt": "-wi -o- `~/DUBImport/build/dubimport`" }
             \ }
 
 let s:hook = { "name": "clear_quickfix", "kind": "hook" }

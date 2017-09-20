@@ -43,6 +43,6 @@ export CXX="clang++"
 export EDITOR="vim"
 
 # Aliasoj
-alias desktopdial="~/bin/DesktopDial/desktopdial"
-alias dubimport="~/bin/DUBImport/dubimport"
+alias desktopdial="~/DesktopDial/build/desktopdial"
+alias dubimport="~/DUBImport/build/dubimport"
 alias ls="ls -l -F --color"
