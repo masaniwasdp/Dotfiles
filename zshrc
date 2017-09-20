@@ -27,7 +27,7 @@ zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
 setopt share_history
 setopt hist_ignore_all_dups
 
-HISTFILE="~/.zsh_history"
+HISTFILE="/home/masaniwa/.zsh_history"
 HISTSIZE=512
 SAVEHIST=512
 
@@ -37,7 +37,7 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 
 # Variabloj
-export PATH=$PATH:"~/.local/bin"
+export PATH=$PATH:"/home/masaniwa/.local/bin"
 export LD_PRELOAD="/usr/lib/libv4l/v4l2convert.so"
 export CC="clang"
 export CXX="clang++"
