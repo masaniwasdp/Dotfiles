@@ -37,12 +37,11 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 
 # Variabloj
+export PATH=$PATH:"~/.local/bin"
 export LD_PRELOAD="/usr/lib/libv4l/v4l2convert.so"
 export CC="clang"
 export CXX="clang++"
 export EDITOR="vim"
 
 # Aliasoj
-alias desktopdial="~/DesktopDial/build/desktopdial"
-alias dubimport="~/DUBImport/build/dubimport"
 alias ls="ls -l -F --color"

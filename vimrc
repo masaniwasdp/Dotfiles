@@ -15,6 +15,7 @@ NeoBundle "Shougo/unite.vim"
 NeoBundle "Shougo/vimfiler"
 NeoBundle "Shougo/vimproc.vim", { "build": { "linux": "make" } }
 NeoBundle "Yggdroot/indentLine"
+NeoBundle "eagletmt/ghcmod-vim"
 NeoBundle "iamcco/markdown-preview.vim"
 NeoBundle "itchyny/lightline.vim"
 NeoBundle "jceb/vim-hier"
@@ -105,6 +106,7 @@ let g:quickrun_config = {
             \ "c/watchdogs_checker": { "type": "watchdogs_checker/clang" },
             \ "cpp/watchdogs_checker": { "type": "watchdogs_checker/clang++" },
             \ "d/watchdogs_checker": { "type": "watchdogs_checker/dmd" },
+            \ "haskell/watchdogs_checker": { "type": "watchdogs_checker/ghc-mod" },
             \ "python/watchdogs_checker": { "type": "watchdogs_checker/flake8" },
             \
             \ "watchdogs_checker/clang": { "cmdopt": "-Wall -Wextra -std=c11 -Iinclude" },
