@@ -16,7 +16,6 @@ NeoBundle "Shougo/vimfiler"
 NeoBundle "Shougo/vimproc.vim", { "build": { "linux": "make" } }
 NeoBundle "Yggdroot/indentLine"
 NeoBundle "eagletmt/ghcmod-vim"
-NeoBundle "iamcco/markdown-preview.vim"
 NeoBundle "itchyny/lightline.vim"
 NeoBundle "jceb/vim-hier"
 NeoBundle "majutsushi/tagbar"
@@ -126,9 +125,6 @@ unlet s:hook
 
 " vim-watchdogs
 let g:watchdogs_check_BufWritePost_enable = 1
-
-" markdown-preview.vim
-let g:mkdp_path_to_chrome = "google-chrome-stable"
 
 " Ŝlosilaj mapeadoj
 map tc :tablast <bar> tabnew<CR>
