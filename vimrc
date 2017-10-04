@@ -127,23 +127,20 @@ unlet s:hook
 let g:watchdogs_check_BufWritePost_enable = 1
 
 " Ŝlosilaj mapeadoj
-map tc :tablast <bar> tabnew<CR>
-map tx :tabclose<CR>
-map t1 :tabnext 1<CR>
-map t2 :tabnext 2<CR>
-map t3 :tabnext 3<CR>
-map t4 :tabnext 4<CR>
-map t5 :tabnext 5<CR>
-map t6 :tabnext 6<CR>
-map t7 :tabnext 7<CR>
-map t8 :tabnext 8<CR>
-map t9 :tabnext 9<CR>
+map tc :tablast <bar> tabnew <CR>
+map tx :tabclose <CR>
+map t1 :tabnext 1 <CR>
+map t2 :tabnext 2 <CR>
+map t3 :tabnext 3 <CR>
+map t4 :tabnext 4 <CR>
+map t5 :tabnext 5 <CR>
+map t6 :tabnext 6 <CR>
+map t7 :tabnext 7 <CR>
+map t8 :tabnext 8 <CR>
+map t9 :tabnext 9 <CR>
 
-noremap <C-C> :UniteWithBufferDir file -buffer-name=file<CR>
-noremap <C-E> :VimFilerExplorer<CR>
-noremap <C-F> :Unite -buffer-name=file file<CR>
-noremap <C-H> :Unite file_mru<CR>
-noremap <C-L> :TagbarToggle<CR>
-noremap <C-W> <C-W>w
+noremap <C-E> :VimFilerExplorer <CR>
+noremap <C-F> :Unite -buffer-name=file file <CR>
+noremap <C-W> <C-W> w
 noremap <C-Y> <C-R>
 noremap <C-Z> u
