@@ -1,0 +1,7 @@
+[user]
+    email = masaniwasdp@gmail.com
+    name = masaniwa
+[core]
+    autocrlf = input
+[url "git@github.com:"]
+    insteadof = https://github.com/
