@@ -8,9 +8,6 @@ call neobundle#begin(expand("~/.vim/bundle/"))
 NeoBundleFetch "Shougo/neobundle.vim"
 
 NeoBundle "Shougo/neocomplete"
-NeoBundle "Shougo/neomru.vim"
-NeoBundle "Shougo/neosnippet"
-NeoBundle "Shougo/neosnippet-snippets"
 NeoBundle "Shougo/unite.vim"
 NeoBundle "Shougo/vimfiler"
 NeoBundle "Shougo/vimproc.vim", { "build": { "linux": "make" } }
@@ -18,10 +15,8 @@ NeoBundle "Yggdroot/indentLine"
 NeoBundle "eagletmt/ghcmod-vim"
 NeoBundle "itchyny/lightline.vim"
 NeoBundle "jceb/vim-hier"
-NeoBundle "majutsushi/tagbar"
 NeoBundle "osyo-manga/vim-watchdogs"
 NeoBundle "osyo-manga/shabadou.vim"
-NeoBundle "szw/vim-tags"
 NeoBundle "thinca/vim-quickrun"
 
 call neobundle#end()
@@ -55,37 +50,8 @@ set fileencodings=utf-8,sjis
 set fileformats=unix,dos
 
 " Informoj
-function! s:sid_prefix()
-    return matchstr(expand("<sfile>"), "<SNR>\d\+_\zeSID_PREFIX$")
-endfunction
-
-function! s:tabline()
-    let line = ""
-
-    for i in range(1, tabpagenr("$"))
-        let bufnr = tabpagebuflist(i)[tabpagewinnr(i) - 1]
-
-        let modified = getbufvar(bufnr, "&modified") ? "!" : " "
-
-        let title = "[" . fnamemodify(bufname(bufnr), ":t") . "]"
-
-        let kind = i == tabpagenr() ? "TabLineSel" : "TabLine"
-
-        let line .= "%" . i . "T%#" . kind . "#" . i . ":" . title . modified . "%#TabLineFill# "
-    endfor
-
-    let line .= "%#TabLineFill#%T%=%#TabLine#"
-
-    return line
-endfunction
-
-let &tabline = "%!" . s:sid_prefix() . s:tabline()
-
 set showtabline=2
 set laststatus=2
-
-" unite.vim
-let g:unite_source_file_mru_limit = 16
 
 " lightline.vim
 let g:lightline = { "colorscheme": "solarized" }
@@ -141,6 +107,6 @@ map t9 :tabnext 9 <CR>
 
 noremap <C-E> :VimFilerExplorer <CR>
 noremap <C-F> :Unite -buffer-name=file file <CR>
-noremap <C-W> <C-W> w
+noremap <C-W> <C-W>w
 noremap <C-Y> <C-R>
 noremap <C-Z> u
