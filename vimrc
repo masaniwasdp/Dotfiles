@@ -12,6 +12,7 @@ NeoBundle "Shougo/unite.vim"
 NeoBundle "Shougo/vimfiler"
 NeoBundle "Shougo/vimproc.vim", { "build": { "linux": "make" } }
 NeoBundle "Yggdroot/indentLine"
+NeoBundle "dannyob/quickfixstatus"
 NeoBundle "eagletmt/ghcmod-vim"
 NeoBundle "itchyny/lightline.vim"
 NeoBundle "jceb/vim-hier"
@@ -65,13 +66,12 @@ let g:quickrun_config = {
             \   "outputter/buffer/split": "botright 8sp",
             \   "outputter/quickfix/open_cmd": "copen",
             \   "runner": "vimproc",
-            \   "runner/vimproc/updatetime": "100"
+            \   "runner/vimproc/updatetime": "50"
             \   },
             \
             \ "c/watchdogs_checker": { "type": "watchdogs_checker/clang" },
             \ "cpp/watchdogs_checker": { "type": "watchdogs_checker/clang++" },
             \ "d/watchdogs_checker": { "type": "watchdogs_checker/dmd" },
-            \ "haskell/watchdogs_checker": { "type": "watchdogs_checker/ghc-mod" },
             \ "python/watchdogs_checker": { "type": "watchdogs_checker/flake8" },
             \
             \ "watchdogs_checker/clang": { "cmdopt": "-Wall -Wextra -std=c11 -Iinclude" },
@@ -91,6 +91,11 @@ unlet s:hook
 
 " vim-watchdogs
 let g:watchdogs_check_BufWritePost_enable = 1
+
+let g:watchdogs_check_BufWritePost_enables = { "haskell": 0 }
+
+" ghcmod-vim
+autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
 " Ŝlosilaj mapeadoj
 map tc :tablast <bar> tabnew <CR>
