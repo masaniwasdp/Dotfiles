@@ -59,25 +59,23 @@ let g:lightline = { "colorscheme": "solarized" }
 
 " vim-quickrun
 let g:quickrun_config = {
-            \ "_": {
-            \   "outputter": "error",
-            \   "outputter/error/success": "buffer",
-            \   "outputter/error/error": "quickfix",
-            \   "outputter/buffer/split": "botright 8sp",
-            \   "outputter/quickfix/open_cmd": "copen",
-            \   "runner": "vimproc",
-            \   "runner/vimproc/updatetime": "50"
-            \   },
-            \
-            \ "c/watchdogs_checker": { "type": "watchdogs_checker/clang" },
-            \ "cpp/watchdogs_checker": { "type": "watchdogs_checker/clang++" },
-            \ "d/watchdogs_checker": { "type": "watchdogs_checker/dmd" },
-            \ "python/watchdogs_checker": { "type": "watchdogs_checker/flake8" },
-            \
-            \ "watchdogs_checker/clang": { "cmdopt": "-Wall -Wextra -std=c11 -Iinclude" },
-            \ "watchdogs_checker/clang++": { "cmdopt": "-Wall -Wextra -std=c++14 -Iinclude" },
-            \ "watchdogs_checker/dmd": { "cmdopt": "-wi -o- `~/DUBImport/build/dubimport`" }
-            \ }
+\   "_": {
+\       "outputter": "error",
+\       "outputter/error/success": "buffer",
+\       "outputter/error/error": "quickfix",
+\       "outputter/buffer/split": "botright 8sp",
+\       "outputter/quickfix/open_cmd": "copen",
+\       "runner": "vimproc",
+\       "runner/vimproc/updatetime": "50"
+\   },
+\
+\   "cpp/watchdogs_checker": { "type": "watchdogs_checker/clang++" },
+\   "d/watchdogs_checker": { "type": "watchdogs_checker/dmd" },
+\   "python/watchdogs_checker": { "type": "watchdogs_checker/flake8" },
+\
+\   "watchdogs_checker/clang++": { "cmdopt": "-Wall -Wextra -std=c++1z" },
+\   "watchdogs_checker/dmd": { "cmdopt": "-wi -o- `~/DUBImport/build/dubimport`" }
+\ }
 
 let s:hook = { "name": "clear_quickfix", "kind": "hook" }
 
