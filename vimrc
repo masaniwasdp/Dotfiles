@@ -68,11 +68,9 @@ let g:quickrun_config = {
 \       "runner": "vimproc",
 \       "runner/vimproc/updatetime": "50"
 \   },
-\
 \   "cpp/watchdogs_checker": { "type": "watchdogs_checker/clang++" },
 \   "d/watchdogs_checker": { "type": "watchdogs_checker/dmd" },
 \   "python/watchdogs_checker": { "type": "watchdogs_checker/flake8" },
-\
 \   "watchdogs_checker/clang++": { "cmdopt": "-Wall -Wextra -std=c++1z" },
 \   "watchdogs_checker/dmd": { "cmdopt": "-wi -o- `~/DUBImport/build/dubimport`" }
 \ }
@@ -89,7 +87,6 @@ unlet s:hook
 
 " vim-watchdogs
 let g:watchdogs_check_BufWritePost_enable = 1
-
 let g:watchdogs_check_BufWritePost_enables = { "haskell": 0 }
 
 " ghcmod-vim
