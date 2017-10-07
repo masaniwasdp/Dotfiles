@@ -12,7 +12,6 @@ NeoBundle "Shougo/unite.vim"
 NeoBundle "Shougo/vimfiler"
 NeoBundle "Shougo/vimproc.vim", { "build": { "linux": "make" } }
 NeoBundle "Yggdroot/indentLine"
-NeoBundle "dannyob/quickfixstatus"
 NeoBundle "eagletmt/ghcmod-vim"
 NeoBundle "itchyny/lightline.vim"
 NeoBundle "jceb/vim-hier"
