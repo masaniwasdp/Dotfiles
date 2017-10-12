@@ -71,7 +71,7 @@ let g:quickrun_config = {
 \   "d/watchdogs_checker": { "type": "watchdogs_checker/dmd" },
 \   "python/watchdogs_checker": { "type": "watchdogs_checker/flake8" },
 \   "watchdogs_checker/clang++": { "cmdopt": "-Wall -Wextra -std=c++1z" },
-\   "watchdogs_checker/dmd": { "cmdopt": "-wi -o- `~/DUBImport/build/dubimport`" }
+\   "watchdogs_checker/dmd": { "cmdopt": "-wi -o- `~/DUBImport/build/dubimport -o`" }
 \ }
 
 let s:hook = { "name": "clear_quickfix", "kind": "hook" }
