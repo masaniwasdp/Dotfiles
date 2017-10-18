@@ -45,4 +45,4 @@ export EDITOR="vim"
 
 # Aliasoj
 alias ghclone="/home/masaniwa/ghclone.sh"
-alias ls="ls -l -F --color"
+alias list="ls -l -F --color"
