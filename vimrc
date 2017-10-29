@@ -13,6 +13,7 @@ NeoBundle "Shougo/vimfiler"
 NeoBundle "Shougo/vimproc.vim", { "build": { "linux": "make" } }
 NeoBundle "Yggdroot/indentLine"
 NeoBundle "eagletmt/ghcmod-vim"
+NeoBundle "elzr/vim-json"
 NeoBundle "itchyny/lightline.vim"
 NeoBundle "jceb/vim-hier"
 NeoBundle "osyo-manga/vim-watchdogs"
@@ -90,6 +91,9 @@ let g:watchdogs_check_BufWritePost_enables = { "haskell": 0 }
 
 " ghcmod-vim
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+
+" vim-json
+let g:vim_json_syntax_conceal = 0
 
 " Ŝlosilaj mapeadoj
 map tc :tablast <bar> tabnew <CR>
