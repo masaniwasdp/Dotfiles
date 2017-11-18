@@ -7,7 +7,7 @@ call neobundle#begin(expand("~/.vim/bundle/"))
 
 NeoBundleFetch "Shougo/neobundle.vim"
 
-NeoBundle "Shougo/neocomplete"
+NeoBundle "Shougo/neocomplete.vim"
 NeoBundle "Shougo/unite.vim"
 NeoBundle "Shougo/vimfiler"
 NeoBundle "Shougo/vimproc.vim", { "build": { "linux": "make" } }
@@ -36,7 +36,7 @@ set colorcolumn=120
 
 " Aperoj de spacetoj
 set list
-set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
+set listchars=tab:»_,trail:_,extends:»,precedes:«,nbsp:%
 
 " Indento
 set autoindent
@@ -47,8 +47,8 @@ set tabstop=4
 " Manipuli dosierojn
 set nobackup
 set encoding=utf-8
-set fileencodings=utf-8,sjis
-set fileformats=unix,dos
+set fileencodings=utf-8
+set fileformats=unix
 
 " Informoj
 set showtabline=2
