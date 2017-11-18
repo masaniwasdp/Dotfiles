@@ -36,7 +36,7 @@ set colorcolumn=120
 
 " Aperoj de spacetoj
 set list
-set listchars=tab:»_,trail:_,extends:»,precedes:«,nbsp:%
+set listchars=tab:»_,trail:_,extends:»,precedes:«
 
 " Indento
 set autoindent
