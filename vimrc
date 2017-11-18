@@ -96,20 +96,20 @@ autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 let g:vim_json_syntax_conceal = 0
 
 " Ŝlosilaj mapeadoj
-map tc :tablast <bar> tabnew <CR>
-map tx :tabclose <CR>
-map t1 :tabnext 1 <CR>
-map t2 :tabnext 2 <CR>
-map t3 :tabnext 3 <CR>
-map t4 :tabnext 4 <CR>
-map t5 :tabnext 5 <CR>
-map t6 :tabnext 6 <CR>
-map t7 :tabnext 7 <CR>
-map t8 :tabnext 8 <CR>
-map t9 :tabnext 9 <CR>
+noremap r <C-R>
 
-noremap <C-E> :VimFilerExplorer <CR>
-noremap <C-F> :Unite -buffer-name=file file <CR>
-noremap <C-W> <C-W>w
-noremap <C-Y> <C-R>
-noremap <C-Z> u
+noremap n :tablast <bar> tabnew <CR>
+noremap c :tabclose <CR>
+
+noremap e :VimFilerExplorer <CR>
+
+noremap f :Unite -buffer-name=file file <CR>
+noremap t :Unite tab <CR>
+
+noremap <C-Left> <C-W>h
+noremap <C-Right> <C-W>l
+noremap <C-Up> <C-W>j
+noremap <C-Down> <C-W>k
+
+noremap <S-Left> :tabprevious <CR>
+noremap <S-Right> :tabnext <CR>
