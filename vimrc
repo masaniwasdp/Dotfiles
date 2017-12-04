@@ -87,17 +87,13 @@ set showtabline=2
 set tabstop=4
 set title
 
-noremap <C-Left> <C-W>h
-noremap <C-Right> <C-W>l
-noremap <C-Up> <C-W>k
-noremap <C-Down> <C-W>j
-noremap <S-Left> :tabprevious <CR>
-noremap <S-Right> :tabnext <CR>
-noremap f :UniteWithBufferDir file -buffer-name=file <CR>
 noremap c :tab sp <CR>
-noremap n :tabnew <CR>
-noremap q :q <CR>
+noremap f :UniteWithBufferDir file -buffer-name=file <CR>
+noremap m :tabnext <CR>
+noremap n <C-W>w
+noremap q :quit <CR>
 noremap r <C-R>
 noremap s :vsplit <CR>
-noremap t :Unite tab -buffer-name=tab <CR>
-noremap w :w <CR>
+noremap t :tabnew <CR>
+noremap w :Unite window -buffer-name=window <CR>
+noremap z :tabprevious <CR>
