@@ -28,8 +28,8 @@ setopt share_history
 setopt hist_ignore_all_dups
 
 HISTFILE="/home/masaniwa/.zsh_history"
-HISTSIZE=512
-SAVEHIST=512
+HISTSIZE=256
+SAVEHIST=1024
 
 # cd
 setopt auto_cd
