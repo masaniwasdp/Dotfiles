@@ -95,5 +95,5 @@ noremap q :quit <CR>
 noremap r <C-R>
 noremap s :vsplit <CR>
 noremap t :tabnew <CR>
-noremap w :Unite window -buffer-name=window <CR>
+noremap w :write <CR>
 noremap z :tabprevious <CR>
