@@ -44,5 +44,4 @@ export CXX="clang++"
 export EDITOR="vim"
 
 # Aliasoj
-alias ghclone="/home/masaniwa/ghclone.sh"
 alias list="ls -l -F --color"
