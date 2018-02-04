@@ -43,7 +43,7 @@ let g:quickrun_config = {
 \   "cpp/watchdogs_checker": { "type": "watchdogs_checker/clang++" },
 \   "d/watchdogs_checker": { "type": "watchdogs_checker/dmd" },
 \   "python/watchdogs_checker": { "type": "watchdogs_checker/flake8" },
-\   "watchdogs_checker/clang++": { "cmdopt": "-Wall -Wextra -std=c++1z" },
+\   "watchdogs_checker/clang++": { "cmdopt": "-Wall -Wextra -std=c++17 -I./" },
 \   "watchdogs_checker/dmd": { "cmdopt": "-wi -o- `~/dubimport -o`" }
 \ }
 
