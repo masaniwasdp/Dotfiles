@@ -40,9 +40,11 @@ let g:quickrun_config = {
 \       "runner": "vimproc",
 \       "runner/vimproc/updatetime": 10
 \   },
+\   "c/watchdogs_checker": { "type": "watchdogs_checker/clang" },
 \   "cpp/watchdogs_checker": { "type": "watchdogs_checker/clang++" },
 \   "d/watchdogs_checker": { "type": "watchdogs_checker/dmd" },
 \   "python/watchdogs_checker": { "type": "watchdogs_checker/flake8" },
+\   "watchdogs_checker/clang": { "cmdopt": "-Wall -Wextra -std=c11 -I./" },
 \   "watchdogs_checker/clang++": { "cmdopt": "-Wall -Wextra -std=c++17 -I./" },
 \   "watchdogs_checker/dmd": { "cmdopt": "-wi -o- `dub describe --data import-paths`" }
 \ }
